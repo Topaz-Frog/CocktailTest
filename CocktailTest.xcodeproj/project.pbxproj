@@ -14,6 +14,8 @@
 		E736042F28AD033C00097F54 /* CocktailTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736042E28AD033C00097F54 /* CocktailTestTests.swift */; };
 		E736043928AD033C00097F54 /* CocktailTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736043828AD033C00097F54 /* CocktailTestUITests.swift */; };
 		E736043B28AD033C00097F54 /* CocktailTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736043A28AD033C00097F54 /* CocktailTestUITestsLaunchTests.swift */; };
+		E736044928AD042700097F54 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736044828AD042700097F54 /* Cocktail.swift */; };
+		E736044D28AD0BC600097F54 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736044C28AD0BC600097F54 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		E736043428AD033C00097F54 /* CocktailTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocktailTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E736043828AD033C00097F54 /* CocktailTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailTestUITests.swift; sourceTree = "<group>"; };
 		E736043A28AD033C00097F54 /* CocktailTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E736044828AD042700097F54 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
+		E736044C28AD0BC600097F54 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +98,10 @@
 		E736041C28AD033A00097F54 /* CocktailTest */ = {
 			isa = PBXGroup;
 			children = (
+				E736044B28AD0BB000097F54 /* ViewModels */,
 				E736041D28AD033A00097F54 /* CocktailTestApp.swift */,
-				E736041F28AD033A00097F54 /* ContentView.swift */,
+				E736044A28AD042F00097F54 /* Models */,
+				E736044728AD040600097F54 /* Views */,
 				E736042128AD033C00097F54 /* Assets.xcassets */,
 				E736042328AD033C00097F54 /* Preview Content */,
 			);
@@ -125,6 +131,30 @@
 				E736043A28AD033C00097F54 /* CocktailTestUITestsLaunchTests.swift */,
 			);
 			path = CocktailTestUITests;
+			sourceTree = "<group>";
+		};
+		E736044728AD040600097F54 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E736041F28AD033A00097F54 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E736044A28AD042F00097F54 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E736044828AD042700097F54 /* Cocktail.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E736044B28AD0BB000097F54 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E736044C28AD0BC600097F54 /* ViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +289,8 @@
 			files = (
 				E736042028AD033A00097F54 /* ContentView.swift in Sources */,
 				E736041E28AD033A00097F54 /* CocktailTestApp.swift in Sources */,
+				E736044D28AD0BC600097F54 /* ViewModel.swift in Sources */,
+				E736044928AD042700097F54 /* Cocktail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

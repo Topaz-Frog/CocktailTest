@@ -8,13 +8,15 @@
 import Foundation
 
 class Cocktail {
-    var name: String
-    var image_url: String
-    var id: Int
+    struct Returned: Codable {
+        var drinks: [Drink]
+    }
     
-    init(name:String, image_url:String, id:Int) {
-        self.name = name
-        self.image_url = image_url
-        self.id = id
+    struct Drink: Identifiable, Codable {
+        var id: Int { Int(idDrink)! }
+        
+        var strDrink: String
+        var strDrinkThumb: String
+        var idDrink: String
     }
 }

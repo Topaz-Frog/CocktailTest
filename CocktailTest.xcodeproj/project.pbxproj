@@ -16,6 +16,7 @@
 		E736043B28AD033C00097F54 /* CocktailTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736043A28AD033C00097F54 /* CocktailTestUITestsLaunchTests.swift */; };
 		E736044928AD042700097F54 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736044828AD042700097F54 /* Cocktail.swift */; };
 		E736044D28AD0BC600097F54 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736044C28AD0BC600097F54 /* ViewModel.swift */; };
+		E796382028B3D6F800FDE8AD /* DrinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796381F28B3D6F800FDE8AD /* DrinkButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		E736043A28AD033C00097F54 /* CocktailTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E736044828AD042700097F54 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
 		E736044C28AD0BC600097F54 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		E796381F28B3D6F800FDE8AD /* DrinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +100,8 @@
 		E736041C28AD033A00097F54 /* CocktailTest */ = {
 			isa = PBXGroup;
 			children = (
-				E736044B28AD0BB000097F54 /* ViewModels */,
 				E736041D28AD033A00097F54 /* CocktailTestApp.swift */,
+				E736044B28AD0BB000097F54 /* ViewModels */,
 				E736044A28AD042F00097F54 /* Models */,
 				E736044728AD040600097F54 /* Views */,
 				E736042128AD033C00097F54 /* Assets.xcassets */,
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				E736041F28AD033A00097F54 /* ContentView.swift */,
+				E796381F28B3D6F800FDE8AD /* DrinkButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E796382028B3D6F800FDE8AD /* DrinkButton.swift in Sources */,
 				E736042028AD033A00097F54 /* ContentView.swift in Sources */,
 				E736041E28AD033A00097F54 /* CocktailTestApp.swift in Sources */,
 				E736044D28AD0BC600097F54 /* ViewModel.swift in Sources */,

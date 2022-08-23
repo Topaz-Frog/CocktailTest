@@ -22,6 +22,7 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack {
+                // header
                 ZStack {
                     Color("Dark Sienna")
                         .ignoresSafeArea()
@@ -33,11 +34,12 @@ struct ContentView: View {
                         
                         Spacer()
                         
+                        // Menu with ingredients
                         Menu {
                             ForEach(viewModel.ingredientArr) { item in
                                 Button("\(item.strIngredient1)") {
                                     Task {
-                                        await viewModel.getDrinksData()
+                                        await viewModel.getData(getIngredients: false, drinkID: nil)
                                     }
                                     viewModel.chosenIngredient = item.strIngredient1
                                 }
@@ -52,12 +54,14 @@ struct ContentView: View {
                 
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 10) {
+                        // display drinks as buttons
                         ForEach($viewModel.drinkArr) { $item in
-                            // open drink description
                             Button {
                                 Task {
-                                    await viewModel.getExtendedDrinkData(drinkID: item.idDrink)
+                                    // download data about picked drink
+                                    await viewModel.getData(getIngredients: false, drinkID: item.idDrink)
                                 }
+                                // open drink description with animation
                                 withAnimation {
                                     self.isDrinkDisplayed.toggle()
                                 }
@@ -68,15 +72,14 @@ struct ContentView: View {
                     }
                     .padding(.horizontal)
                 }
-//                .refreshable {
-//                    await viewModel.getDrinksData()
-//                }
                 .task {
-                    await viewModel.getDrinksData()
-                    await viewModel.getIngredientsData()
+                    // download drinks with vodka and all ingredients
+                    await viewModel.getData(getIngredients: false, drinkID: nil)
+                    await viewModel.getData(getIngredients: true, drinkID: nil)
                 }
             }
             
+//            display extended drink information if pressed
             if isDrinkDisplayed {
                 DrinkDescription(drink: $viewModel.openedDrink, isDrinkDisplayed: $isDrinkDisplayed)
                     .frame(minHeight: 0, maxHeight: .infinity)

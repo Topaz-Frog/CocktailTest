@@ -22,6 +22,8 @@ class DrinkExtended {
         var strAlcoholic: String
         var strGlass: String
         var strInstructions: String
+//        possible to add if needed:
+        
 //        var strInstructionsES: String
 //        var strInstructionsDE: String
 //        var strInstructionsFR: String

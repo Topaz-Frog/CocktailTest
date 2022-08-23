@@ -20,6 +20,7 @@
 		E796382228B4F7F300FDE8AD /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796382128B4F7F300FDE8AD /* Ingredients.swift */; };
 		E796382528B50D9700FDE8AD /* IngredientMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796382428B50D9700FDE8AD /* IngredientMenu.swift */; };
 		E796382728B50E5500FDE8AD /* DrinkDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796382628B50E5500FDE8AD /* DrinkDescription.swift */; };
+		E796382928B50F6100FDE8AD /* DrinkExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796382828B50F6100FDE8AD /* DrinkExtended.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		E796382128B4F7F300FDE8AD /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		E796382428B50D9700FDE8AD /* IngredientMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientMenu.swift; sourceTree = "<group>"; };
 		E796382628B50E5500FDE8AD /* DrinkDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDescription.swift; sourceTree = "<group>"; };
+		E796382828B50F6100FDE8AD /* DrinkExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkExtended.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			children = (
 				E736044828AD042700097F54 /* Drinks.swift */,
 				E796382128B4F7F300FDE8AD /* Ingredients.swift */,
+				E796382828B50F6100FDE8AD /* DrinkExtended.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				E736041E28AD033A00097F54 /* CocktailTestApp.swift in Sources */,
 				E736044D28AD0BC600097F54 /* ViewModel.swift in Sources */,
 				E796382228B4F7F300FDE8AD /* Ingredients.swift in Sources */,
+				E796382928B50F6100FDE8AD /* DrinkExtended.swift in Sources */,
 				E796382728B50E5500FDE8AD /* DrinkDescription.swift in Sources */,
 				E736044928AD042700097F54 /* Drinks.swift in Sources */,
 				E796382528B50D9700FDE8AD /* IngredientMenu.swift in Sources */,

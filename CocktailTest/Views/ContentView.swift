@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel = ViewModel()
+    @State var isDrinkDisplayed:Bool = false
     
     let columns = [
         GridItem(.flexible()),
@@ -35,10 +36,10 @@ struct ContentView: View {
                         Menu {
                             ForEach(viewModel.ingredientArr) { item in
                                 Button("\(item.strIngredient1)") {
-                                    viewModel.chosenIngredient = item.strIngredient1
                                     Task {
                                         await viewModel.getDrinksData()
                                     }
+                                    viewModel.chosenIngredient = item.strIngredient1
                                 }
                             }
                         } label: {
@@ -52,9 +53,14 @@ struct ContentView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 10) {
                         ForEach($viewModel.drinkArr) { $item in
+                            // open drink description
                             Button {
-                                // open drink description
-                                print(item.strDrink)
+                                Task {
+                                    await viewModel.getExtendedDrinkData(drinkID: item.idDrink)
+                                }
+                                withAnimation {
+                                    self.isDrinkDisplayed.toggle()
+                                }
                             } label: {
                                 DrinkButton(drink: $item)
                             }
@@ -69,6 +75,13 @@ struct ContentView: View {
                     await viewModel.getDrinksData()
                     await viewModel.getIngredientsData()
                 }
+            }
+            
+            if isDrinkDisplayed {
+                DrinkDescription(drink: $viewModel.openedDrink, isDrinkDisplayed: $isDrinkDisplayed)
+                    .frame(minHeight: 0, maxHeight: .infinity)
+                    .zIndex(1)
+                    .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
             }
         }
     }

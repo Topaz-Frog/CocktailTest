@@ -12,6 +12,7 @@ extension ContentView {
         @Published var drinkArr: [Drinks.Drink] = []
         @Published var ingredientArr: [Ingredients.Ingredient] = []
         @Published var chosenIngredient: String = "Vodka"
+        @Published var openedDrink: DrinkExtended.Drink = DrinkExtended.Drink(idDrink: "977", strDrink: "Czysta", strDrinkThumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUFKYcXuM4onp47mQIIb5AgwVG6EXUWuZ6HGw7-7s&s", strCategory: "Cocktail", strAlcoholic: "Alcoholic", strGlass: "White wine glass", strInstructions: "intruct")
         
         func getDrinksData() async {
             let url_base = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i="
@@ -38,9 +39,8 @@ extension ContentView {
                 
                 do {
                     let returned = try JSONDecoder().decode(Drinks.Returned.self, from: data!)
-//                    self.drinkArr.append(contentsOf: returned.drinks)
                     self.drinkArr = returned.drinks
-                    print(self.drinkArr.count)
+//                    print(self.drinkArr.count)
                 } catch {
                     print("JSON error. \(error.localizedDescription)")
                     print(String(describing: error))
@@ -73,10 +73,43 @@ extension ContentView {
                 
                 do {
                     let returned = try JSONDecoder().decode(Ingredients.Returned.self, from: data!)
-//                    self.ingredientArr = self.ingredientArr + returned.drinks
-//                    print(self.ingredientArr.count)
                     self.ingredientArr = returned.drinks.sorted(by: { $0.strIngredient1 < $1.strIngredient1 })
-//                    self.ingredientArr.sorted(by: { $0.strIngredient1 > $1.strIngredient1 })
+                } catch {
+                    print("JSON error. \(error.localizedDescription)")
+                    print(String(describing: error))
+                }
+//                print("completed")
+            }
+//            print("resumed")
+            task.resume()
+        }
+        
+        func getExtendedDrinkData(drinkID: String) async {
+            let url_base = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="
+//            print("trying to access")
+            let temp_url = url_base + drinkID
+            
+//            print("create url")
+//            print(temp_url)
+            
+            guard let url = URL(string: temp_url) else {
+                print("Invalid url. URL: \(temp_url)")
+                return
+            }
+            
+//            print("create session")
+            
+            let session = URLSession.shared
+            
+            let task = session.dataTask(with: url) { data, response, error in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                }
+                
+                do {
+                    let returned = try JSONDecoder().decode(DrinkExtended.Returned.self, from: data!)
+                    self.openedDrink = returned.drinks[0]
+//                    print(self.openedDrink)
                 } catch {
                     print("JSON error. \(error.localizedDescription)")
                     print(String(describing: error))

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DrinkButton: View {
-    @Binding var drink: Cocktail.Drink
+    @Binding var drink: Drinks.Drink
     
     var body: some View {
         VStack(alignment: .center) {
@@ -40,6 +40,6 @@ struct DrinkButton: View {
 
 struct DrinkButton_Previews: PreviewProvider {
     static var previews: some View {
-        DrinkButton(drink: .constant(Cocktail.Drink(strDrink: "Czysta", strDrinkThumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUFKYcXuM4onp47mQIIb5AgwVG6EXUWuZ6HGw7-7s&s", idDrink: "9999999")))
+        DrinkButton(drink: .constant(Drinks.Drink(strDrink: "Czysta", strDrinkThumb: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUFKYcXuM4onp47mQIIb5AgwVG6EXUWuZ6HGw7-7s&s", idDrink: "9999999")))
     }
 }

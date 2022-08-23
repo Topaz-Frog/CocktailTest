@@ -9,7 +9,7 @@ import Foundation
 
 extension ContentView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var drinkArr: [Cocktail.Drink] = []
+        @Published var drinkArr: [Drinks.Drink] = []
         @Published var ingredientArr: [Ingredients.Ingredient] = []
         @Published var chosenIngredient: String = "Vodka"
         
@@ -37,7 +37,7 @@ extension ContentView {
                 }
                 
                 do {
-                    let returned = try JSONDecoder().decode(Cocktail.Returned.self, from: data!)
+                    let returned = try JSONDecoder().decode(Drinks.Returned.self, from: data!)
 //                    self.drinkArr.append(contentsOf: returned.drinks)
                     self.drinkArr = returned.drinks
                     print(self.drinkArr.count)

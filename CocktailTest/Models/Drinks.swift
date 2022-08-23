@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Cocktail {
+class Drinks {
     struct Returned: Codable {
         var drinks: [Drink]
     }

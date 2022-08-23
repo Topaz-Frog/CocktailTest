@@ -17,6 +17,7 @@
 		E736044928AD042700097F54 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736044828AD042700097F54 /* Cocktail.swift */; };
 		E736044D28AD0BC600097F54 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736044C28AD0BC600097F54 /* ViewModel.swift */; };
 		E796382028B3D6F800FDE8AD /* DrinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796381F28B3D6F800FDE8AD /* DrinkButton.swift */; };
+		E796382228B4F7F300FDE8AD /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796382128B4F7F300FDE8AD /* Ingredients.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		E736044828AD042700097F54 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
 		E736044C28AD0BC600097F54 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E796381F28B3D6F800FDE8AD /* DrinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkButton.swift; sourceTree = "<group>"; };
+		E796382128B4F7F300FDE8AD /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				E736041F28AD033A00097F54 /* ContentView.swift */,
-				E796381F28B3D6F800FDE8AD /* DrinkButton.swift */,
+				E796382328B4FD0600FDE8AD /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				E736044828AD042700097F54 /* Cocktail.swift */,
+				E796382128B4F7F300FDE8AD /* Ingredients.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,6 +161,14 @@
 				E736044C28AD0BC600097F54 /* ViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E796382328B4FD0600FDE8AD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E796381F28B3D6F800FDE8AD /* DrinkButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +305,7 @@
 				E736042028AD033A00097F54 /* ContentView.swift in Sources */,
 				E736041E28AD033A00097F54 /* CocktailTestApp.swift in Sources */,
 				E736044D28AD0BC600097F54 /* ViewModel.swift in Sources */,
+				E796382228B4F7F300FDE8AD /* Ingredients.swift in Sources */,
 				E736044928AD042700097F54 /* Cocktail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

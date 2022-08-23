@@ -17,15 +17,23 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: 20) {
-                ForEach($viewModel.drinkArr) { $item in
-                    ExtractedView(drink: $item)
+        ZStack {
+            Color("Upsdell Red")
+                .ignoresSafeArea()
+            
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach($viewModel.drinkArr) { $item in
+                        DrinkButton(drink: $item)
+                    }
                 }
+                .navigationBarTitle(viewModel.chosenIngredient, displayMode: .inline)
+                .padding(.horizontal)
             }
-        }
-        .task {
-            await viewModel.getData(ingredient: "Vodka")
+            .task {
+                await viewModel.getDrinksData()
+                await viewModel.getIngredientsData()
+            }
         }
     }
 }
@@ -33,31 +41,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-struct ExtractedView: View {
-    @Binding var drink: Cocktail.Drink
-    
-    var body: some View {
-        VStack(alignment: .center) {
-            AsyncImage(url: URL(string: drink.strDrinkThumb)) { phase in
-                if let image = phase.image {
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } else if phase.error != nil {
-                    Text("There was an error loading the image.")
-                } else {
-                    ProgressView()
-                }
-            }
-            .frame(height: 200)
-            
-            Text(drink.strDrink)
-                .font(.headline)
-                .multilineTextAlignment(.center)
-                .frame(alignment: .center)
-        }
     }
 }

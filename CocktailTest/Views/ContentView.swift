@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var drinks = Cocktail()
     @ObservedObject var viewModel = ViewModel()
     
     let columns = [
@@ -18,21 +17,58 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color("Upsdell Red")
+            Color("Rosewood")
                 .ignoresSafeArea()
             
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach($viewModel.drinkArr) { $item in
-                        DrinkButton(drink: $item)
+            VStack {
+                ZStack {
+                    Color("Dark Sienna")
+                        .ignoresSafeArea()
+                        .frame(height: 70)
+                    
+                    HStack {
+                        Text("Chosen ingredient: \(viewModel.chosenIngredient)")
+                            .font(.headline)
+                        
+                        Spacer()
+                        
+                        Menu {
+                            ForEach(viewModel.ingredientArr) { item in
+                                Button("\(item.strIngredient1)") {
+                                    viewModel.chosenIngredient = item.strIngredient1
+                                    Task {
+                                        await viewModel.getDrinksData()
+                                    }
+                                }
+                            }
+                        } label: {
+                            Label("Change", systemImage: "ellipsis")
+                        }
                     }
+                    .padding(.horizontal)
+                    .foregroundColor(Color("Burnt Sienna"))
                 }
-                .navigationBarTitle(viewModel.chosenIngredient, displayMode: .inline)
-                .padding(.horizontal)
-            }
-            .task {
-                await viewModel.getDrinksData()
-                await viewModel.getIngredientsData()
+                
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 10) {
+                        ForEach($viewModel.drinkArr) { $item in
+                            Button {
+                                // open drink description
+                                print(item.strDrink)
+                            } label: {
+                                DrinkButton(drink: $item)
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+//                .refreshable {
+//                    await viewModel.getDrinksData()
+//                }
+                .task {
+                    await viewModel.getDrinksData()
+                    await viewModel.getIngredientsData()
+                }
             }
         }
     }

@@ -12,7 +12,9 @@ class Ingredients {
         var drinks: [Ingredient]
     }
     
-    struct Ingredient: Codable {
+    struct Ingredient: Identifiable, Codable {
+        var id: String { strIngredient1 }
+        
         var strIngredient1: String
     }
 }
